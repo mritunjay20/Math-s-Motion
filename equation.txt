@@ -1,0 +1,155 @@
+﻿MATHMOTION — EQUATION COLLECTION
+
+1. BASIC EQUATIONS
+
+---
+
+x
+2*x+1
+-x
+x^2
+-x^2
+x^3
+x^4
+x^2-4
+(x-2)^2+1
+abs(x)
+sqrt(abs(x))
+1/(1+x^2)
+
+2. TRIGONOMETRIC WAVES
+
+---
+
+sin(x)
+cos(x)
+tan(x)
+sin(2x)
+sin(5x)
+3sin(x)
+0.3sin(x)
+sin(x)+cos(3*x)
+sin(x)cos(x)
+sin(x)sin(5x)
+abs(sin(x))
+sin(x)^2
+cos(x)sin(4x)
+x+sin(3x)
+
+3. EXPONENTIAL EQUATIONS
+
+---
+
+exp(x)
+exp(-x)
+exp(-x^2)
+exp(-0.2x^2)
+exp(-0.1abs(x))sin(5x)
+cos(x)exp(-0.1x^2)
+
+
+4. LOGARITHMIC EQUATIONS
+
+---
+
+log(abs(x)+1)
+log(abs(x)+1)/log(10)
+
+5. COOL CURVES
+
+---
+
+x^2sin(x)
+x^2cos(x)
+x^3sin(x)
+sin(x^2)
+sin(sqrt(abs(x)))
+sin(x+sin(3x))
+sin(x)+sin(2x)+sin(3x)
+sin(x)+0.5sin(7x)
+sin(10x)/(1+0.1x^2)
+
+
+6. CIRCLE EQUATIONS
+
+---
+
+Circle: x^2+y^2=25
+Unit circle: x^2+y^2=1
+
+Upper half of circle:
+sqrt(25-x^2)
+
+Lower half of circle:
+-sqrt(25-x^2)
+
+7. HEART CURVE
+
+---
+
+Implicit heart:
+(x^2+y^2-1)^3-x^2*y^3=0
+
+Parametric heart:
+x(t)=16sin(t)^3
+y(t)=13cos(t)-5cos(2t)-2cos(3t)-cos(4*t)
+
+Parameter range: 0 to 2*pi
+
+8. BUTTERFLY CURVE
+
+---
+
+r(t)=exp(cos(t))-2cos(4t)-sin(t/12)^5
+x(t)=sin(t)*r(t)
+y(t)=cos(t)*r(t)
+
+Parameter range: 0 to 12*pi
+
+9. FLOWER CURVES
+
+---
+
+Four-petal rose:
+x(t)=cos(2*t)cos(t)
+y(t)=cos(2t)*sin(t)
+
+Six-petal rose:
+x(t)=cos(3*t)cos(t)
+y(t)=cos(3t)*sin(t)
+
+10. SPIRALS
+
+---
+
+x(t)=tcos(t)
+y(t)=tsin(t)
+
+Parameter range: 0 to 8*pi
+
+11. INFINITY SYMBOL
+
+---
+
+
+x(t)=cos(t)/(1+sin(t)^2)
+y(t)=sin(t)*cos(t)/(1+sin(t)^2)
+
+Parameter range: 0 to 2*pi
+
+12. ELLIPSE
+
+---
+
+
+x(t)=4cos(t)
+y(t)=2sin(t)
+
+IMPORTANT NOTES
+
+
+- Start testing with sin(x), cos(x), or x^2.
+- Most trigonometric functions use radians.
+- Equations containing only x generally work in a y=f(x) graph.
+- Circle, heart, butterfly, flower, spiral, and infinity curves may require implicit or parametric graph support.
+- A simple y=f(x) graph cannot directly display all parametric curves.
