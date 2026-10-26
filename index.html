@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b10">
+  <meta name="description" content="MathMotion is a browser-based mathematical animation and graph visualization engine.">
+  <title>MathMotion — Mathematical Animation Engine</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="MathMotion home">
+        <span class="brand-mark">ƒ</span><span>Math<span class="accent">Motion</span></span>
+      </a>
+      <div class="topbar-right">
+        <span class="status-dot"></span><span class="status-text">CANVAS ENGINE READY</span>
+        <a class="github-link" href="https://github.com/new" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-line"></span> MATHEMATICS, IN MOTION</div>
+        <h1>Turn equations into <span>motion.</span></h1>
+        <p>Explore the beauty of mathematics through live, interactive graphs.</p>
+      </section>
+
+      <section class="workspace" aria-label="Mathematical animation workspace">
+        <div class="workspace-head">
+          <div>
+            <div class="panel-kicker">INTERACTIVE WORKSPACE</div>
+            <h2>Function Lab <span class="live-pill"><i></i> LIVE</span></h2>
+          </div>
+          <button class="icon-button" id="gridToggle" aria-pressed="true" title="Toggle grid">▦ <span>Grid</span></button>
+        </div>
+
+        <div class="graph-wrap">
+          <canvas id="graphCanvas" aria-label="Animated mathematical graph"></canvas>
+          <div class="graph-overlay top-left"><span class="mini-dot"></span> REAL-TIME PLOT</div>
+          <div class="graph-overlay top-right" id="coordinateReadout">x: 0.00&nbsp; y: 0.00</div>
+          <div class="graph-overlay bottom-left" id="graphLabel">y = sin(x − t)</div>
+          <div class="graph-overlay bottom-right">CANVAS / 2D</div>
+        </div>
+
+        <div class="controls-row">
+          <div class="transport">
+            <button id="playBtn" class="primary-button"><span id="playIcon">Ⅱ</span><span id="playText">Pause</span></button>
+            <button id="resetBtn" class="secondary-button">↺ Reset</button>
+          </div>
+          <div class="speed-control">
+            <label for="speedRange">ANIMATION SPEED <strong id="speedValue">1.0×</strong></label>
+            <input id="speedRange" type="range" min="0" max="3" value="1" step="0.1">
+          </div>
+        </div>
+
+        <div class="editor-grid">
+          <section class="control-panel">
+            <div class="panel-title-row"><h3>Equation editor</h3><span class="tiny-label">LIVE INPUT</span></div>
+            <label class="field-label" for="equationInput">FUNCTION</label>
+            <div class="equation-input-wrap"><span class="equation-prefix">ƒ(x) =</span><input id="equationInput" value="sin(x - t)" autocomplete="off" spellcheck="false" aria-describedby="equationHelp"></div>
+            <p class="help-text" id="equationHelp">Use <code>x</code>, <code>t</code>, numbers, and functions like <code>sin</code>, <code>cos</code>, <code>sqrt</code>, <code>abs</code>.</p>
+            <div class="field-row">
+              <div><label class="field-label" for="amplitudeRange">AMPLITUDE <strong id="amplitudeValue">1.0</strong></label><input id="amplitudeRange" type="range" min="0.2" max="3" value="1" step="0.1"></div>
+              <div><label class="field-label" for="frequencyRange">FREQUENCY <strong id="frequencyValue">1.0</strong></label><input id="frequencyRange" type="range" min="0.2" max="5" value="1" step="0.1"></div>
+            </div>
+            <div class="presets-heading"><span>QUICK PRESETS</span></div>
+            <div class="preset-list">
+              <button class="preset active" data-equation="sin(x - t)" data-name="Travelling sine wave"><span class="preset-symbol">∿</span><span><b>Sine wave</b><small>sin(x − t)</small></span></button>
+              <button class="preset" data-equation="cos(2*x - t)" data-name="Cosine wave"><span class="preset-symbol">≈</span><span><b>Cosine wave</b><small>cos(2x − t)</small></span></button>
+              <button class="preset" data-equation="sin(x)*cos(t)" data-name="Modulated wave"><span class="preset-symbol">〰</span><span><b>Modulated wave</b><small>sin(x) cos(t)</small></span></button>
+              <button class="preset" data-equation="0.15*x*x*sin(t)" data-name="Oscillating parabola"><span class="preset-symbol">∪</span><span><b>Parabola pulse</b><small>0.15x² sin(t)</small></span></button>
+            </div>
+            <button class="apply-button" id="applyBtn">Apply equation <span>→</span></button>
+            <p class="error-message" id="errorMessage" role="status"></p>
+          </section>
+
+          <section class="control-panel info-panel">
+            <div class="panel-title-row"><h3>Animation settings</h3><span class="tiny-label">DISPLAY</span></div>
+            <div class="setting-item"><div><b>Draw animation</b><small>Reveal the curve over time</small></div><label class="switch"><input type="checkbox" id="drawToggle" checked><span></span></label></div>
+            <div class="setting-item"><div><b>Glow effect</b><small>Soft neon line rendering</small></div><label class="switch"><input type="checkbox" id="glowToggle" checked><span></span></label></div>
+            <div class="setting-item"><div><b>Moving point</b><small>Highlight the current position</small></div><label class="switch"><input type="checkbox" id="pointToggle" checked><span></span></label></div>
+            <div class="setting-item"><div><b>Coordinate axes</b><small>Show x and y axes</small></div><label class="switch"><input type="checkbox" id="axesToggle" checked><span></span></label></div>
+            <div class="legend-card">
+              <div class="legend-line"></div><div><b>Function curve</b><small id="legendEquation">f(x, t) = sin(x − t)</small></div>
+            </div>
+            <div class="engine-note"><span>ⓘ</span><p>Angles use radians. The variable <code>t</code> changes with animation time. Your equation is evaluated by a restricted math parser.</p></div>
+          </section>
+        </div>
+      </section>
+
+      <section class="bottom-note">
+        <div><span class="bottom-icon">∑</span><div><h3>Math, made visual.</h3><p>Experiment with equations, explore patterns, and discover how functions behave over time.</p></div></div>
+        <span class="version-tag">MATHMOTION v1.0</span>
+      </section>
+    </main>
+    <footer><span>Built for curious minds.</span><span>HTML · CSS · JavaScript Canvas</span></footer>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+</html>
